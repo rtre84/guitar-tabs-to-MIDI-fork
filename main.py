@@ -7,8 +7,15 @@ import argparse
 
 def main():
 
-    fname = input("Enter file location: ")
-    tempo = input("Enter tempo of song: ")
+    # In the interest of making this debuggable and runnable in a Collab notebook
+    # fname = input("Enter file location: ")
+    # fname = "basic_pitch_transcription_changed.txt"
+    fname = "basic_pitch_transcription.txt"
+
+    # In the interest of making this debuggable and runnable in a Collab notebook
+    # tempo = input("Enter tempo of song: ")
+    tempo = ""
+
     if tempo == "":
         tempo = 100
 

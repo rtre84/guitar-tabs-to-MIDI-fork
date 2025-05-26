@@ -3,7 +3,7 @@ class Tabs(object):
 
     def __init__(self,fname):
         #Symbols to be removed to preprocess tabs
-        self.symbols = ['h','/','p','\\','*','^','|',"e","B","G","D","A","E"]
+        self.symbols = [' ','h','/','p','\\','*','^','|',"e","B","G","D","A","E"]
         self.a = []
         #MIDI equivalent of e B G D A E
         self.notes = [64, 59, 55, 50, 45, 40]
@@ -49,4 +49,6 @@ class Tabs(object):
         for i in range(len(self.a)):
             for j in range(len(self.a[i])):
                 if self.a[i][j]!='-':
+                    # print(self.a[i][j])
+                    # print(self.notes[i])
                     self.a[i][j] = str(int(self.a[i][j])+self.notes[i])
