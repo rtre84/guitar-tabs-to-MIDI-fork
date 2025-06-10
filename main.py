@@ -40,7 +40,18 @@ def main():
             from IPython.display import Audio, display
             display(Audio("output.wav"))
         else:
-            print("Error converting MIDI to WAV")
+            # Fallback to use timidity via pip install if that is available instead.
+            # Timidity in notebook environments especially google collab is janky.
+            command = "python -m timidity output.mid -Ow -o output.wav"
+            result = os.system(command)
+
+            if result == 0:  # Success
+                print("MIDI converted to WAV successfully!")
+                # Play the WAV file in Colab
+                from IPython.display import Audio, display
+                display(Audio("output.wav"))
+            else:
+                print("Error converting MIDI to WAV")
 
     except Exception as e:
         print(f"Error: {e}")
